@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  coeiroink:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    volumes:
+      - ./COEIROINK_LINUX_GPU/speaker_info:/app/speaker_info
+
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    runtime: nvidia
+    restart: unless-stopped
