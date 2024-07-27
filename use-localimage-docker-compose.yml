@@ -2,7 +2,9 @@ version: "3"
 
 services:
   coeiroink:
-    image: kuwacom/coeiroink:gpu-COEIROINK-2.5.1
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
       - "8080:80"
     volumes:
