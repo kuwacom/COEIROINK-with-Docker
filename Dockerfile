@@ -1,5 +1,5 @@
-# cudaインストール済みのベースイメージ
-FROM nvidia/cuda:11.8.0-base-ubuntu20.04
+# cuda及びcudnnインストール済みのベースイメージ
+FROM nvidia/cuda:11.8.0-cudnn8-runtime-ubuntu22.04
 
 # COEIOINKが 172.0.0.1 でしかホストできないためプロキシを入れる
 RUN apt-get update && \
